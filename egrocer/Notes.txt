@@ -1,0 +1,47 @@
+ STEP 1
+ C:\ACN\egrocer> 
+
+npm install -g seneca seneca-entity seneca-mongo-store seneca-amqp-transport express mongodb nodemon
+
++ express@4.17.1
++ mongodb@3.6.4
++ seneca-entity@13.0.0
++ seneca@3.23.2
++ seneca-mongo-store@4.0.0
++ seneca-amqp-transport@2.2.0
++ nodemon@2.0.7
+
+STEP 2 (C:\ACN\egrocer\gateway)
+npx express-generator gateway
+   change directory:
+     > cd gateway
+
+   install dependencies:
+     > npm install
+
+STEP 3 (C:\ACN\egrocer\gateway\package.json)
+Change node to nodemon
+STEP 4 : start mongodb server (mongod.exe) & client/shell (mongo.exe)
+  C:\Program Files\MongoDB\Server\4.4\bin
+STEP 5 : Start rabbitMQ - search and run RabbitMQ Service - start
+
+MongoDB
+var prod = <copy products json>
+ db.product.insertMany(prod);
+ db.product.find()
+ db.product.find().pretty();
+ 
+app.js
+add var catalogRouter = require('./routes/catalog);
+add app.use('/catalog', catalogRouter);
+
+
+
+====================================================================================================================================
+(node:16564) Warning: Accessing non-existent property 'MongoError' of module exports inside circular dependency
+Back to version 3.6.3 from 3.6.4
+npm uninstall mongodb --save
+
+Install version 3.6.3
+npm i mongodb@3.6.3
+
